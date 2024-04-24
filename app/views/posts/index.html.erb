@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: #500080;
+    }
+    .container-fluid {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      width: 100%;
+      background-color: #000;
+      border: 2px solid #FFFFFF;
+      color: #fff;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+    }
+    .card-text {
+      font-size: 1rem;
+    }
+    .page-title {
+      text-align: center;
+      color: #fff;
+      padding: 20px 0;
+      cursor: pointer; 
+      text-decoration: none; 
+    }
+  </style>
+</head>
+<body class="text-white">
+  <div class="container-fluid p-4">
+    <h1 class="page-title" onclick="location.href='<%= posts_path %>'">Yweeter</h1>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <% @posts.each do |post| %>
+          <a href="<%= post_path(post) %>" class="text-white text-decoration-none">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                <p class="card-text"><%= post.content %></p>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

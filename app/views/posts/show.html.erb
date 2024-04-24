@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: #500080;
+    }
+    .container-fluid {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      width: 100%;
+      background-color: #000;
+      border: 2px solid #FFFFFF;
+      color: #fff;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+    }
+    .card-text {
+      font-size: 1rem;
+    }
+    .page-title {
+      text-align: center;
+      color: #fff;
+      padding: 20px 0;
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+    }
+    .page-title-button {
+      cursor: pointer; 
+      text-decoration: none; 
+    }
+  </style>
+</head>
+<body class="text-white">
+  <div class="container-fluid p-4">
+    <h1 class="page-title page-title-button" onclick="location.href='<%= posts_path %>'">Yweeter</h1>
+    <a href="<%= posts_path %>" class="btn btn-primary back-button"><i class="fas fa-arrow-left"></i></a>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= @post.title %></h5>
+            <p class="card-text"><%= @post.content %></p>
+            <p class="card-text"><small class="text-muted">Publicado el <%= @post.published_at.strftime("%B %d, %Y") %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

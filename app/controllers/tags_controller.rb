@@ -1,4 +1,3 @@
-# app/controllers/tags_controller.rb
 class TagsController < ApplicationController
     def index
       @tags = Tag.all
